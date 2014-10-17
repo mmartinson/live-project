@@ -1,0 +1,19 @@
+<div class="col-md-8 col-sm-9 col-xs-12">
+  <div class="contain-fluid">
+    <h3><%= @task.title %></h3>
+    <h6><%= "To be completed by: #{@task.due_date}" %></h6>
+    <br>
+    <p><%= @task.description %></p>
+    <br>
+    <%= link_to "Edit Task", edit_task_path(@task), class: "btn btn-primary" %>
+    <%= link_to "Delete Task", task_path(@task), method: "delete", class: "btn btn-danger" %>
+  </div>
+</div>
+<div class="col-md-4 col-sm-3 col-xs-0">
+  <div class="container-fluid">
+    <h3><strong>All Tasks</strong></h3>
+    <% @tasks.each do |task| %>
+    <h4><%= link_to task.title, task_path(task) %></h4>
+    <hr>
+  </div>
+</div>

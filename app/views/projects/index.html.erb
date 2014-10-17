@@ -1,0 +1,7 @@
+<div class="col-md-8 col-sm-10 col-xs-12">
+  <% @projects.each do |project| %>
+  <hr>
+  <h3><%= link_to project.title, project_path(project.id) %></h3>
+  <hr>
+  <% end %>
+</div>
