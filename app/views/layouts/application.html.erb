@@ -16,15 +16,20 @@
       </ul>
     </div>
   </nav>
+
   <div class="container">
-    <% if flash[:notice] %>
-    <h6 class="alert alert-success"><%= flash[:notice]%></h6>
-    <% elsif flash[:alert] %>
-    <h6 class="alert alert-danger"><%= flash[:alert] %></h6>
-    <% end %>
-  </div>
-  <div class="container">
-    <%= yield %>
+    <div class="row">
+      <div class="col-md-1">
+        <% if flash[:notice] %>
+        <h6 class="alert alert-success"><%= flash[:notice]%></h6>
+        <% elsif flash[:alert] %>
+        <h6 class="alert alert-danger"><%= flash[:alert] %></h6>
+        <% end %>
+      </div>
+      <div class="col-md-11">
+        <%= yield %>
+      </div>
+    </div>
   </div>
 </body>
 </html>

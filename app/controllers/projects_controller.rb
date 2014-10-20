@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      flash[:notice] = "New Live Project #{@project.title} created in the database"
+      flash[:notice] = "New Live Project '#{@project.title}'' created in the database"
       redirect_to project_path(@project)
     else
       flash.now[:alert] = "There was some kind of problem saving your new Live Project. Check input fields and try again."

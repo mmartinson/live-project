@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
-  before_action :get_task, only: [:show, :edit, :update, :delete]
-  ASSOCIATED_PROJECT_ID = Project.limit(10).sample.id
+  before_action :get_task, only: [:show, :edit, :update, :destroy]
+  ASSOCIATED_PROJECT_ID = Project.limit(4).sample.id
 
   def new
-    @task=Task.new
+    @tasks = Task.all
+    @task = Task.new
   end
 
   def create
@@ -16,13 +17,17 @@ class TasksController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @tasks = Task.all
+  end
 
-  def edit; end
+  def edit
+    @tasks = Task.all
+  end
 
   def update
     if @task.update(task_params)
-      redirect_to @tast, notice: "Task Updated"
+      redirect_to @task, notice: "Task Updated"
     else
       flash[:alert] = "Problem editing task, chek that it has a unique name"
       render :edit
@@ -32,14 +37,14 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     flash[:notice] = "Task deleted"
-    redirect_to project(Project.find(ASSOCIATED_PROJECT_ID))
+    redirect_to project_path(Project.find(ASSOCIATED_PROJECT_ID))
   end
 
 
   private
 
   def get_task
-    @tast = Task.find(params[:id])
+    @task = Task.find(params[:id]) 
   end
 
   def task_params
