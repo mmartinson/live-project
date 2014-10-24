@@ -1,0 +1,43 @@
+// Place all the styles related to the static controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+
+
+#main-title {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  padding-left: 10%;
+  padding-top: 10%;
+  font-size: 120px;
+}
+
+#sub-title {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  padding-left: 60%;
+  padding-top: 10px  ;
+  font-size: 40px;
+}
+
+body {
+  background-image: asset-data-url("wood_background.jpg");
+  background-size: cover;
+}
+
+.primary-col {
+
+}
+
+.secondary-col {
+  opacity: 0;
+  background-color: white;
+}
+
+.column-liner {
+  background-color: white;
+  padding: 3px;
+  border-radius: 1%;
+}
