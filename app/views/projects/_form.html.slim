@@ -1,0 +1,12 @@
+= form_for @project do |f|
+  .input-group
+    label for="title" Title
+    =  f.text_field :title, class: "form-control"
+  .form-group
+    label for="due-date" Due Date
+    = f.date_field :due_date, class: "form-control" 
+  .form-group
+    label for="description" Description
+    = f.text_area :description, rows: 7, class: "form-control"
+  .form-group
+    = f.submit "#{@project.persisted? ? 'Update' : 'Create'}"

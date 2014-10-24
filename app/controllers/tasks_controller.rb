@@ -1,36 +1,47 @@
 class TasksController < ApplicationController
   before_action :get_task, only: [:show, :edit, :update, :destroy]
-  ASSOCIATED_PROJECT_ID = Project.limit(4).sample.id
 
   def new
-    @tasks = Task.all
+    @project = Project.find(params[:project_id])
+    #
     @task = Task.new
+    #
+    #@task = @project.tasks.new
+    @tasks = @project.tasks
   end
 
   def create
-    @task = Task.new(task_params)
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.new(task_params)
+    # @tasks = @project.tasks                     #this is for the render
     if @task.save
-      redirect_to @task, notice: "Task added"
+      redirect_to @project, notice: "Task added"
     else
       flash[:alert] = "Problem adding task, check that it has a unique name"
-      render :new
+      redirect_to new_project_task_path(@project, @task)
+      # render :new               Tam, why does this not work?
+
     end
   end
 
   def show
-    @tasks = Task.all
+    # @project = @task.project
+    @project = Project.find(params[:project_id])
+    @tasks = @project.tasks
   end
 
   def edit
-    @tasks = Task.all
+    @project = Project.find(params[:project_id]) 
+    @tasks = @project.tasks
   end
 
   def update
+    @project = Project.find(params[:project_id])
     if @task.update(task_params)
-      redirect_to @task, notice: "Task Updated"
+      redirect_to @project, notice: "Task Updated"
     else
       flash[:alert] = "Problem editing task, chek that it has a unique name"
-      render :edit
+      redirect_to edit_project_task_path(@project, @task)
     end
   end
 

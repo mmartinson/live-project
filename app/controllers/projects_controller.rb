@@ -53,6 +53,6 @@ class ProjectsController < ApplicationController
   end
 
   def find_associated_tasks
-    @tasks = Task.all   #change to reflect only associated tasks
+    @tasks = @project.tasks
   end
 end

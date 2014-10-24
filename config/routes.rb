@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-root  'static#home'
-get '/about' => 'static#about'
+  root  'static#home'
+  get '/about' => 'static#about'
 
-resources :projects, :tasks
-  
+  resources :projects do 
+    resources :tasks
+  end  
 end
 
 

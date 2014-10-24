@@ -1,5 +1,5 @@
 class AddProjectIdToTask < ActiveRecord::Migration
   def change
-    add_column :tasks, :question, :resource
+    add_reference :tasks, :project, index: true
   end
 end

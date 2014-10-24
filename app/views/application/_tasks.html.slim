@@ -1,0 +1,7 @@
+h3 All Tasks for #{project.title}
+= link_to "Add a Task", new_project_task_path(project), class: "btn btn-success"
+br
+br
+- @tasks.each do |task|
+  h4= link_to task.title, project_task_path(project, task)
+  hr

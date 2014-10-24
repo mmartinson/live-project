@@ -1,0 +1,10 @@
+  h2 Add a New Task
+  = form_for([project, task]) do |f|
+    .form-group
+      = f.text_field :title, class: 'from-control', placeholder: 'task title'
+    .form-group
+      = f.date_field :due_date, class: 'form-control'
+    .form-group
+      = f.submit class: 'btn btn-primary'
+
+

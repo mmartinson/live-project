@@ -1,0 +1,5 @@
+.col-md-6
+  - @projects.each do |project| 
+    hr
+    h3= link_to project.title, project_path(project.id)
+    hr

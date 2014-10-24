@@ -27,11 +27,20 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    animate-rails (1.0.7)
+      rails
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
+    better_errors (2.0.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.2.2)
+    choice (0.1.6)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -40,19 +49,15 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    columnize (0.8.9)
-    debugger (1.6.8)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.3.5)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.3.5)
+    debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.2)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
     ffi (1.9.6)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
     hike (1.2.3)
     hirb (0.7.2)
     i18n (0.6.11)
@@ -76,6 +81,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -91,6 +98,11 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.6)
       sprockets-rails (~> 2.0)
+    rails-erd (1.1.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -120,6 +132,7 @@ GEM
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
+    ruby-graphviz (1.0.9)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -129,6 +142,14 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    slim (2.1.0)
+      temple (~> 0.6.9)
+      tilt (>= 1.3.3, < 2.1)
+    slim-rails (2.1.5)
+      actionpack (>= 3.0, < 4.2)
+      activesupport (>= 3.0, < 4.2)
+      railties (>= 3.0, < 4.2)
+      slim (~> 2.0)
     slop (3.6.0)
     spoon (0.0.4)
       ffi
@@ -142,6 +163,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    temple (0.6.9)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -157,24 +179,29 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  animate-rails
   awesome_print
+  better_errors
+  binding_of_caller
   bootstrap-sass (~> 3.2.0)
   coffee-rails (~> 4.0.0)
-  debugger
   factory_girl
+  font-awesome-rails
   hirb
   interactive_editor
   jbuilder (~> 2.0)
   jquery-rails
   pg
-  pry
+  pry-rails
   quiet_assets
   rails (= 4.1.6)
+  rails-erd
   rails_12factor
   rspec-mocks
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  slim-rails
   spring
   turbolinks
   uglifier (>= 1.3.0)

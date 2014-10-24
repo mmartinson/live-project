@@ -1,0 +1,4 @@
+.col-md-8
+  = render partial: 'form', locals: {project: @project, task: @task}
+.col-md-4
+  = render partial: 'tasks', locals: {project: @project, tasks: @tasks}

@@ -9,9 +9,9 @@ gem 'bootstrap-sass', '~>3.2.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'pry'
-
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'slim-rails'
+gem 'animate-rails'
+gem 'font-awesome-rails'
 
 group :development do
   gem 'spring'
@@ -19,10 +19,13 @@ group :development do
   gem 'hirb'
   gem 'awesome_print'
   gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'rails-erd'
 end
 
 group :development, :test do
-  gem 'debugger'
   gem 'rspec-rails'
   gem 'rspec-mocks'
   gem 'factory_girl'
@@ -32,6 +35,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'sdoc', '~> 0.4.0',          group: :doc
 
 
 # Use ActiveModel has_secure_password
