@@ -1,4 +1,11 @@
 $font-family-sans-serif: 'Raleway', sans-serif;
+$navbar-height: 50px;
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+.navbar {
+  border-radius: 0px;
+  margin-bottom: 0px;
+  background-color: white;
+}

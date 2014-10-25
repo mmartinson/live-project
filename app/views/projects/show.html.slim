@@ -1,4 +1,3 @@
-.col-md-8  
   .liner#main-box  
     h3
       strong= @project.title
@@ -10,7 +9,6 @@
     = link_to "Abandon Project", project_path(@project), method: "delete", class: "btn btn-danger"
 
 
-.col-md-4
   .liner#right-box
     
     == render partial: 'tasks', locals: {project: @project}

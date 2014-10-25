@@ -4,30 +4,6 @@
 
 @import url(http://fonts.googleapis.com/css?family=Raleway);
 
-
-#main-box {
-  position: absolute;
-  width: 90%;
-  height: 49em;
-  overflow-y: scroll;
-}
-
-#right-box {
-  position: absolute;
-  width: 90%;
-  height: 100%;
-  height: 49em;
-  overflow-y: scroll;
-
-}
-
-.liner {
-  background-color: white;
-  margin: 1em;
-  vertical-align: middle;
-  padding: 2em;
-}
-
 .brand-title {
   padding-left: 1%;
   margin-top: 1%;
@@ -50,22 +26,4 @@
   font-size: 40px;
 }
 
-body {
-  background-image: asset-data-url("wood_background.jpg");
-  background-size: cover;
-}
 
-.primary-col {
-
-}
-
-.secondary-col {
-  opacity: 0;
-  background-color: white;
-}
-
-.column-liner {
-  background-color: white;
-  padding: 3px;
-  border-radius: 1%;
-}

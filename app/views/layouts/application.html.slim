@@ -6,14 +6,11 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    nav.navbar.navbar-default role="navigation"
+    .header
       = link_to 'Live Project', projects_path, class: 'h1 brand-title'
       ul.nav.nav-pills.pull-right
         li = link_to "All Projects", projects_path
         li = link_to "New Project", new_project_path
-  .contain-fluid
-    .col-md-1
-    .col-md-10
-      .row
-        == yield 
-    .col-md-1
+    .main-contain
+      == yield 
+    .

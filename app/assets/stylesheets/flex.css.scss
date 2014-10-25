@@ -1,0 +1,40 @@
+
+body {
+  background-image: asset-data-url("wood_background.jpg");
+  background-size: cover;
+}
+
+.main-contain {
+  display: flex;
+  height: 90%;
+  width: 100%;
+  // background-color: #FF9966;
+  justify-content: center;
+  padding: 2% 3% 2% 3%;
+}
+
+#main-box {
+  overflow-y: scroll;
+  height: 100%;
+  width: 60%;
+  margin: auto;
+  // margin: 3% 3% 0% 0%;
+}
+
+#right-box {
+  overflow-y: scroll;
+  height: 100%;
+  width: 30%;
+  margin: auto;
+  // margin: 3% 3% 0% 0%;
+
+}
+
+.liner {
+  background-color: white;
+}
+
+.header {
+  height: 10%;
+  background-color: white;
+}
