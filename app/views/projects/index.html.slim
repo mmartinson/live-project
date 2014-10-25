@@ -1,5 +1,6 @@
-.col-md-6
+.liner#main-box   
+  h2 Ongoing Projects
+  br
   - @projects.each do |project| 
-    hr
     h3= link_to project.title, project_path(project.id)
-    hr
+    br

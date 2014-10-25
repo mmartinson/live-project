@@ -1,2 +1,4 @@
-= render 'form'
-= render partial: 'tasks', locals: {project: @project}
+.liner#main-box
+  = render partial: 'form', locals: {project: @project}
+.liner#right-box
+  = render partial: 'tasks', locals: {project: @project, tasks: @tasks}

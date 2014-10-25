@@ -3,10 +3,7 @@ class TasksController < ApplicationController
 
   def new
     @project = Project.find(params[:project_id])
-    #
     @task = Task.new
-    #
-    #@task = @project.tasks.new
     @tasks = @project.tasks
   end
 
@@ -46,9 +43,10 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @project = @task.project
     @task.destroy
     flash[:notice] = "Task deleted"
-    redirect_to project_path(Project.find(ASSOCIATED_PROJECT_ID))
+    redirect_to project_path(@project)
   end
 
 

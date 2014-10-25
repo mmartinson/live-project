@@ -1,9 +1,11 @@
-.col-md-8
-  h2 = @task.title
-  = "To be completed by: #{@task.due_date.strftime('%B %d %Y')}" if @task.due_date
-  br
+.liner#main-box
+  h3 = @task.title  
   = link_to "Edit Task", edit_project_task_path(@project, @task), class: "btn btn-primary"
   = link_to "Delete Task", project_task_path(@project, @task), method: "delete", class: "btn btn-danger"
-.col-md-4
-    .row
-      = render partial: 'tasks', locals: {tasks: @tasks, project: @project}
+  = link_to "Back to Project", project_path(@project), class: 'btn btn-default'
+  br
+  br
+  .btn.btn-default.toggle-chat Toggle chat 
+
+.liner#right-box 
+  = render partial: 'tasks', locals: {tasks: @tasks, project: @project}

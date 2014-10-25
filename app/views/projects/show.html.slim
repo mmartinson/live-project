@@ -1,15 +1,16 @@
   .liner#main-box  
     h3
       strong= @project.title
-    h6= "Due date: #{@project.due_date}"
+    = link_to "Edit Project", edit_project_path(@project), class: "btn btn-primary"
+    = link_to "Abandon Project", project_path(@project), method: "delete", class: "btn btn-danger"
+    h6= "Due date: #{@project.due_date.strftime('%B %d, %Y')}" if @project.due_date
     br
     p= @project.description
     br
-    = link_to "Edit Project", edit_project_path(@project), class: "btn btn-primary"
-    = link_to "Abandon Project", project_path(@project), method: "delete", class: "btn btn-danger"
+    
     .btn.btn-default.toggle-chat Toggle chat 
 
 
   .liner#right-box
     
-    == render partial: 'tasks', locals: {project: @project}
+    = render partial: 'tasks', locals: {project: @project}
