@@ -1,29 +1,21 @@
-(function(){
+$(function() {
   var resizeContainer = function() {
     var parentHeight = $(window).height() - $('.header').outerHeight();
-    $('.main-contain').css({height: parentHeight + 'px'});
+    $('#main-contain').css({height: parentHeight + 'px'});
   };
   var toggleChat = function() {
-    $('chat-contain').css({display: block});
+    $('.chat-contain').toggleClass('active');
   };
 
 
-  $(function() {
+  var chatToggleButton = $('.toggle-chat');
+  chatToggleButton.click(function() {
+    toggleChat();
+  });
+
   // Call resizeContainer when window is resized
   $(window).resize(resizeContainer);
   // Call it now too (on load)
   resizeContainer();
-  // alert('gg')
-  });
 
-  var chatToggleButton = $('#toogle-chat');
-  chatToggleButton.on('click', function() {
-
-  });
-
-
-
-})();
-
-
-
+});

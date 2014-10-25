@@ -11,6 +11,8 @@ html
       ul.nav.nav-pills.pull-right
         li = link_to "All Projects", projects_path
         li = link_to "New Project", new_project_path
-    .main-contain
-      == yield 
-    .
+    #main-contain
+      .content-contain
+        == yield 
+      .chat-contain
+        =render partial: 'discussions/chat'
