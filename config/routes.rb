@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+
   root  'static#home'
   get '/about' => 'static#about'
 
   resources :projects do 
     resources :tasks
+    resources :discussions, shallow: true, except: [:destroy, :show]
   end  
 end
 
