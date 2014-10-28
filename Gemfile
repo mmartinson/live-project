@@ -13,6 +13,7 @@ gem 'slim-rails'
 gem 'animate-rails'
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'faker'
 
 group :development do
   gem 'spring'
@@ -24,6 +25,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'rails-erd'
+  gem 'annotate', '~> 2.6.5'
+
 end
 
 group :development, :test do

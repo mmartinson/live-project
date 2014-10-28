@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import url(http://fonts.googleapis.com/css?family=Raleway);
+@import 'bootstrap';
 
 .brand-title {
   padding-left: 1%;
@@ -26,4 +27,21 @@
   font-size: 40px;
 }
 
+.weak-header {
+  display: inline;
+}
+
+.btn-space {
+  margin-left: 2px;
+}
+
+.js-link {
+  color: $brand-primary;
+
+  &:hover {
+    background-color: $brand-primary;
+    color: #fff;
+    cursor: pointer;
+  }
+}
 

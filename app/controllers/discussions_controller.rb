@@ -1,14 +1,5 @@
 class DiscussionsController < ApplicationController
-  before_action :get_project, only: [:index, :new, :create]
-  before_action :get_discussions, except: [:create, :update]
-  before_action :get_discussion, except: [:new, :create]
-
-  def index
-  end
-
-  def new
-    @discussion = Discussion.new 
-  end
+  before_action :get_project, only: [:create, :update]
 
   def create
     @discussion = Discussion.new discussion_params
@@ -21,9 +12,8 @@ class DiscussionsController < ApplicationController
     end
   end
 
-  def edit; end
-
   def update
+    @discussion = Discussion.find params[:id]
     if @discussion.update discussion_params
       redirect_to @project, notice: "Discussion updated"
     else
@@ -35,10 +25,6 @@ class DiscussionsController < ApplicationController
 
   def discussion_params
     params.require(:discussion).permit(:title, :status, :sticky)
-  end
-
-  def get_discussion
-    @discussion = Discussion.find params[:id]
   end
 
   def get_project

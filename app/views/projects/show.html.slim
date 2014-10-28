@@ -1,8 +1,8 @@
   .liner#main-box  
-    h3
+    h3.weak-header.center
       strong= @project.title
-    = link_to "Edit Project", edit_project_path(@project), class: "btn btn-primary"
-    = link_to "Abandon Project", project_path(@project), method: "delete", class: "btn btn-danger"
+    = link_to "", project_path(@project), method: "delete", class: "btn btn-default glyphicon glyphicon-remove pull-right btn-space"
+    = link_to "", edit_project_path(@project), class: "btn btn-default glyphicon glyphicon-pencil pull-right"  
     h6= "Due date: #{@project.due_date.strftime('%B %d, %Y')}" if @project.due_date
     br
     p= @project.description
@@ -12,5 +12,5 @@
 
 
   .liner#right-box
-    
-    = render partial: 'tasks', locals: {project: @project}
+      
+      = render partial: 'tasks', locals: {project: @project}

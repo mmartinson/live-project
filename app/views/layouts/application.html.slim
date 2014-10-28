@@ -15,4 +15,4 @@ html
       .content-contain
         = yield 
       .chat-contain
-        =render partial: 'discussions/chat'
+        =render partial: 'discussions', locals: {project: @project, discussion: @discussion}

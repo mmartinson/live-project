@@ -1,9 +1,11 @@
 class ProjectsController < ApplicationController
-  before_action :find_project, only: [:show, :edit, :update, :destroy]
+  before_action :find_project, only: [:index, :show, :edit, :update, :destroy]
   before_action :find_associated_tasks, only: [:show, :edit]
+  before_action :generate_empty_discussion, only: [:show, :new, :edit] #defined in app controller
 
   def index
     @projects = Project.all
+    @project = Project.first #will not be shown
   end
 
   def new
@@ -21,11 +23,9 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @project.update(project_params) 
@@ -45,7 +45,12 @@ class ProjectsController < ApplicationController
   private
 
   def find_project
-    @project = Project.find params[:id]
+    if params[:id]
+      @project = Project.find params[:id]
+      return
+    else
+      @project = Project.first #to handle errors, refactor?
+    end
   end
 
   def project_params

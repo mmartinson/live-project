@@ -29,6 +29,9 @@ GEM
       tzinfo (~> 1.1)
     animate-rails (1.0.7)
       rails
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
     bcrypt (3.1.9)
@@ -63,6 +66,8 @@ GEM
     execjs (2.2.2)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     ffi (1.9.6)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
@@ -193,6 +198,7 @@ PLATFORMS
 
 DEPENDENCIES
   animate-rails
+  annotate (~> 2.6.5)
   awesome_print
   better_errors
   binding_of_caller
@@ -200,6 +206,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   factory_girl
+  faker
   font-awesome-rails
   hirb
   interactive_editor
