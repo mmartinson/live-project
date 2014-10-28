@@ -26,6 +26,7 @@ group :development do
   gem 'pry-rails'
   gem 'rails-erd'
   gem 'annotate', '~> 2.6.5'
+  gem 'meta_request'
 
 end
 

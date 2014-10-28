@@ -1,7 +1,7 @@
 .liner#main-box
-  h3 = @task.title  
-  = link_to "Edit Task", edit_project_task_path(@project, @task), class: "btn btn-primary"
-  = link_to "Delete Task", project_task_path(@project, @task), method: "delete", class: "btn btn-danger"
+  h3.eark-header = @task.title  
+  = link_to "", project_task_path(@project, @task), method: "delete", data: {confirm: "Defs do it?"}, class: "btn btn-default glyphicon glyphicon-remove pull-right"  
+  = link_to "", edit_project_task_path(@project, @task), class: "btn btn-default glyphicon glyphicon-pencil pull-right btn-space"
   = link_to "Back to Project", project_path(@project), class: 'btn btn-default'
   br
   br

@@ -45,3 +45,40 @@
   }
 }
 
+////
+//Code for pullout nav buttons
+////
+
+.btn-hider {
+  position: fixed;
+  background: #fff;
+  
+  text-align: middle;
+  font-color: #fff;
+  font-size: 1em;
+
+
+  &.task-hider{
+    right: 0px;
+    bottom: 99px;
+    height: 5em;
+    width: 2em;
+  }
+  &.chat-hider{
+    bottom: 0px;
+    right: 99px;
+    height: 2em;
+    width: 5em;
+  }
+  &.min-all {
+    bottom: 0px;
+    right: 0px;
+    height: 2em;
+    width: 2em;
+  }
+    
+    
+}
+
+
+

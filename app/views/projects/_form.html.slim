@@ -2,7 +2,7 @@ h3= @project.persisted? ? 'Edit project details' : 'Add a new project'
 = form_for @project do |f|
   .form-group
     label for="title" Title
-    =  f.text_field :title, class: "form-control"
+    =  f.text_field :title, class: "form-control", autofocus: true
   .input-group
     label for="due-date" Due Date
     = f.date_field :due_date, class: "form-control" 
