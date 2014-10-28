@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  root  'static#home'
-  get '/about' => 'static#about'
-
+  devise_for :users
+  root  'static#welcome'
+  # get '/welcome' => 'devise/registrations#new'
+  get '/welcome' => 'static#welcome'
   resources :projects do 
     resources :tasks
     resources :discussions, shallow: true, except: [:destroy, :show]

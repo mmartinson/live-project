@@ -27,6 +27,7 @@ group :development do
   gem 'rails-erd'
   gem 'annotate', '~> 2.6.5'
   gem 'meta_request'
+  gem 'html2slim'
 
 end
 

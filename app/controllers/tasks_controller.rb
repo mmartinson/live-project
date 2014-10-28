@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
   before_action :get_task, only: [:show, :edit, :update, :destroy]
   before_action :get_project
   before_action :get_discussions, only: [:show, :new, :edit]

@@ -8,4 +8,5 @@ module ApplicationHelper
   def empty_new_discussion
     Discussion.new
   end
+
 end

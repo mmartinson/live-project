@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_project, only: [:index, :show, :edit, :update, :destroy]
   before_action :find_associated_tasks, only: [:show, :edit]
   before_action :generate_empty_discussion, only: [:show, :new, :edit] #defined in app controller
