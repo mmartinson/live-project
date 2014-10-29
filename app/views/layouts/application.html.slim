@@ -18,9 +18,8 @@ html
       .content-contain
         = yield 
       .chat-contain
-      -if relevant_project(@project)
-        =render partial: 'discussions', locals: {project: relevant_project(@project), discussion: @discussion} 
-      end
+        -if relevant_project(@project)
+          =render partial: 'discussions', locals: {project: relevant_project(@project), discussion: @discussion} 
   .btn.btn-hider.min-all type="button"  data-toggle="button" -
   .btn.btn-hider.chat-hider type="button"  data-toggle="button" chat
   .btn.btn.btn-hider.task-hider type="button"  data-toggle="button" T
