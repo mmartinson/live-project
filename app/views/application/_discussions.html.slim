@@ -1,0 +1,41 @@
+.liner#bottom-main 
+  h3.weak-header Comments 
+  div.btn.btn-default.glyphicon.glyphicon-plus.pull-right
+  br
+  #comment_list
+   - recent_discussion_comments.each do |comment| 
+     h4 = comment
+  
+
+.liner#bottom-right  
+  h3.weak-header Discussions
+  div.btn.btn-default.glyphicon.glyphicon-plus.pull-right data-toggle="modal" data-target="#discussion-form"
+  br
+  - project.discussions.each do |discussion|
+    h4.js-link = discussion.title[0, 30]+'...'
+
+//new discussion form
+#discussion-form.modal.fade aria-hidden="true" aria-labelledby="discussion-form" role="dialog" tabindex="-1" 
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close data-dismiss="modal" type="button" 
+          span aria-hidden="true"  &times;
+          span.sr-only Close
+        h4#myModalLabel.modal-title Add a Discussion
+      .modal-body
+        = form_for [project, empty_new_discussion] do |f|
+          .form-group
+            = f.label :title, "Title"
+            = f.text_field :title, class: 'form-control'
+          .form-group
+            = f.check_box :status, {}, 'urgent', 'new' 
+            = f.label :status, " Flag as urgent"
+          .form-group
+            = f.check_box :sticky, {}, true, false
+            = f.label :sticky, " Stick to top of discussions list for this project"
+          .form-group
+            .modal-footer
+              button.btn.btn-default data-dismiss="modal" type="button"  Actually, nevermind 
+              = f.submit  "Add it!", class: "button btn btn-primary"
+

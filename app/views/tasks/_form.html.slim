@@ -1,10 +1,10 @@
 h3 = task.persisted? ? 'Edit task' : 'Add a new task'
 = form_for [project, task] do |f|
   .form-group
-    = f.text_field :title, class: 'form-control', placeholder: 'task title'
+    = f.text_field :title, class: 'form-control', placeholder: 'task title', autofocus: true
   .form-group
     = f.date_field :due_date, class: 'form-control'
   .form-group
     = f.submit class: 'btn btn-primary'
-  = if task.persisted?
+  - if task.persisted?
     = link_to "Back to task", project_task_path(project, task), class: 'btn btn-default'

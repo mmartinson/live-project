@@ -1,5 +1,5 @@
-h3 All Tasks for #{project.title}
-= link_to "Add a Task", new_project_task_path(project), class: "btn btn-primary"
+h3.weak-header All Tasks for #{project.title}
+= link_to "", new_project_task_path(project), class: "btn btn-default glyphicon glyphicon-plus pull-right"
 br
 br
 - @tasks.each do |task|

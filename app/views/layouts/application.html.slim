@@ -2,7 +2,7 @@ doctype html
 html
   head
     title Live Project
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
   body
@@ -11,8 +11,15 @@ html
       ul.nav.nav-pills.pull-right
         li = link_to "All Projects", projects_path
         li = link_to "New Project", new_project_path
+        li = link_to current_user.display_name, edit_user_registration_path
+        li.h4| 
+        li = link_to "sign out", destroy_user_session_path, method: 'delete'
     #main-contain
       .content-contain
         = yield 
       .chat-contain
-        =render partial: 'discussions/chat'
+        -if relevant_project(@project)
+          =render partial: 'discussions', locals: {project: relevant_project(@project), discussion: @discussion} 
+  .btn.btn-hider.min-all type="button"  data-toggle="button" -
+  .btn.btn-hider.chat-hider type="button"  data-toggle="button" chat
+  .btn.btn.btn-hider.task-hider type="button"  data-toggle="button" T

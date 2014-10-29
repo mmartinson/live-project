@@ -7,11 +7,13 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~>3.2.0'
 gem 'jquery-rails'
-# gem 'turbolinks'
+gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'slim-rails'
 gem 'animate-rails'
 gem 'font-awesome-rails'
+gem 'devise'
+gem 'faker'
 
 group :development do
   gem 'spring'
@@ -23,6 +25,10 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'rails-erd'
+  gem 'annotate', '~> 2.6.5'
+  gem 'meta_request'
+  gem 'html2slim'
+
 end
 
 group :development, :test do
