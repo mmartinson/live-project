@@ -6,11 +6,15 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    @project = Project.first #will not be shown
+    #until associations are done
+    # @project = current_user.recent_project
+    @project = Project.first
   end
+
 
   def new
     @project = Project.new
+
   end
 
   def create

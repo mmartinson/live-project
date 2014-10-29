@@ -9,4 +9,9 @@ module ApplicationHelper
     Discussion.new
   end
 
+  def relevant_project(project)
+    return project if project.respond_to? :id
+     Project.find(current_user.recent_project_id) if current_user.recent_project_id
+  end
+
 end
