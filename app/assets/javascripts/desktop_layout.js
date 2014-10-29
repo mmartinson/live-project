@@ -25,7 +25,7 @@ $(function() {
   });
   $('.min-all').click(function() {
     $('.chat-contain').removeClass('active');
-  }); 
+  });
 
   // Call resizeContainer when window is resized
   $(window).resize(resizeContainer);
