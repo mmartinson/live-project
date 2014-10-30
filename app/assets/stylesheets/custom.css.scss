@@ -24,7 +24,11 @@
   color: white;
   margin-left: 75%;
   margin-top: 10px  ;
-  font-size: 3em;
+  font-size: 1.5em;
+
+  &.bump-over {
+    margin-left: 88%;
+  }
 }
 
 .weak-header {
@@ -76,7 +80,13 @@
     height: 2em;
     width: 2em;
   }
-    
+
+.oauther {
+  width: 100%;
+  height: auto;
+  max-width: 40px;
+  // max-height: auto;
+}   
     
 }
 

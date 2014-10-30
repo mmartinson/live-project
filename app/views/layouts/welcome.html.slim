@@ -8,11 +8,12 @@ html
   body
     .container
       h1#main-title Live Project
-      = link_to "Sign In", new_user_session_path, class:  "sub-title"
+      br
+      = link_to image_tag('google_sign_in.png', {height: 50}), user_omniauth_authorize_path(:google_oauth2), class: 'sub-title oauther weak-header'
+      br
+      p.sub-title or roll vanilla..
+      = link_to "Sign Up", new_user_registration_path, class: "sub-title bump-over"
       br
       br
-      = link_to "Sign Up", new_user_registration_path, class: "sub-title"
-      br
-      br
-      = link_to "Google OAuth", user_omniauth_authorize_path(:google_oauth2), class: 'sub-title'
+      = link_to "Sign In", new_user_session_path, class:  "sub-title bump-over"
 
