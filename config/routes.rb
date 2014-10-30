@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   root  'static#welcome'
-  # get '/welcome' => 'devise/registrations#new'
   get '/welcome' => 'static#welcome'
   resources :projects do 
     resources :tasks

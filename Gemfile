@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'slim-rails'
 gem 'animate-rails'
 gem 'font-awesome-rails'
+gem 'omniauth-google-oauth2'
 gem 'devise'
 gem 'faker'
 
