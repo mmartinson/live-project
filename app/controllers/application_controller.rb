@@ -15,6 +15,11 @@ class ApplicationController < ActionController::Base
     true
   end
 
+  def recent
+    current_user.recent_project_id = @project.id
+  end
+
+
   def layout_by_resource
     if devise_controller?
       "registration"

@@ -28,7 +28,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    authorized(project)
+    authorized(@project)
+    recent
   end
 
   def edit
@@ -38,6 +39,7 @@ class ProjectsController < ApplicationController
   def update
     authorized(@project)
     if @project.update(project_params) 
+      recent
       redirect_to @project, notice: "Live Project updated"
     else
       flash.now[:alert] = "There was some kind of problem with your update. Check input fields and try again"

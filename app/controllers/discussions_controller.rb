@@ -28,6 +28,6 @@ class DiscussionsController < ApplicationController
   end
 
   def get_project
-    @project = Project.find params[:project_id]
+    @project = current_user.find params[:project_id]
   end
 end
