@@ -1,15 +1,14 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_project, only: [:index, :show, :edit, :update, :destroy]
+  before_action :find_project, only: [:show, :edit, :update, :destroy]
   before_action :find_associated_tasks, only: [:show, :edit]
   before_action :generate_empty_discussion, only: [:show, :new, :edit] #defined in app controller
 
   def index
-    @projects = Project.all
+    @projects = current_user.member_projects
     @project = current_user.recent_project
-    @project ||= Project.first
+    @project ||= @projects.first
   end
-
 
   def new
     @project = Project.new
@@ -17,7 +16,9 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.members = [current_user]
     if @project.save
+      current_user.recent_project_id = @project.id
       flash[:notice] = "New Live Project '#{@project.title}'' created in the database"
       redirect_to project_path(@project)
     else
@@ -26,11 +27,16 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    authorized(project)
+  end
 
-  def edit; end
+  def edit
+    authorized(@project)
+  end
 
   def update
+    authorized(@project)
     if @project.update(project_params) 
       redirect_to @project, notice: "Live Project updated"
     else
@@ -40,6 +46,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    authorized(project)
     @project.destroy
     flash[:notice] = "#{@project.title} was deleted from the database"
     redirect_to projects_path
@@ -49,10 +56,10 @@ class ProjectsController < ApplicationController
 
   def find_project
     if params[:id]
-      @project = Project.find params[:id]
+      @project = current_user.member_projects.find params[:id]
       return
     else
-      @project = Project.first #to handle errors, refactor?
+      @project = current_user.member_projects.first #to handle errors, refactor?
     end
   end
 

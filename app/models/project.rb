@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
   has_many :tasks, dependent: :nullify
   has_many :discussions, dependent: :nullify
   has_many :memberships, dependent: :destroy
-  has_many :users, through: :memberships, source: :user
+  has_many :members, through: :memberships, source: :user
 
   validates :title, presence: true, uniqueness: {scope: :title}
 
