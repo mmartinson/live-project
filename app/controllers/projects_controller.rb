@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = current_user.member_projects
-    @project = current_user.recent_project
+    @project = current_user.member_projects.find_by_id current_user.recent_project_id
     @project ||= @projects.first
   end
 
@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    authorized(project)
+    authorized(@project)
     @project.destroy
     flash[:notice] = "#{@project.title} was deleted from the database"
     redirect_to projects_path
@@ -59,9 +59,11 @@ class ProjectsController < ApplicationController
   def find_project
     if params[:id]
       @project = current_user.member_projects.find_by_id params[:id]
+      authorized(@project)
       return
     else
       @project = current_user.member_projects.first #to handle errors, refactor?
+      authorized(@project)
     end
   end
 

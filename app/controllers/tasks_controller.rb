@@ -12,7 +12,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    authorize(@project)
+    authorized(@project)
     @task = @project.tasks.new(task_params)
     if @task.save
       recent
@@ -34,7 +34,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    authorize(@project)
+    authorized(@project)
     if @task.update(task_params)
       recent
       redirect_to @project, notice: "Task Updated"
@@ -45,7 +45,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    authorize(@project)
+    authorized(@project)
     @project = @task.project
     @task.destroy
     recent

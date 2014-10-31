@@ -8,13 +8,13 @@
   
 
 .liner#bottom-right  
-- if project.persisted?
-  h3.weak-header Discussions
-  div.btn.btn-default.glyphicon.glyphicon-plus.pull-right data-toggle="modal" data-target="#discussion-form"
-  br
-  -unless project.discussions.empty?
-    - project.discussions.each do |discussion|
-      h4.js-link = discussion.title[0, 30]+'...'
+  - if project.persisted?
+    h3.weak-header Discussions
+    div.btn.btn-default.glyphicon.glyphicon-plus.pull-right data-toggle="modal" data-target="#discussion-form"
+    br
+    -unless project.discussions.empty?
+      - project.discussions.each do |discussion|
+        h4.js-link = discussion.title[0, 30]+'...'
   
   
   //new discussion form

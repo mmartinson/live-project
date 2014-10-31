@@ -11,7 +11,9 @@ class ApplicationController < ActionController::Base
 
   NO_ACCESS = "You need to be included as a member of this project to view or make changes. Any current member can add you to the project"
   def authorized(project)
-    return redirect_to projects_path, alert: NO_ACCESS unless project.members.include? current_user
+    unless project.respond_to?(:members) && project.members.include?(current_user)
+      return redirect_to projects_path, alert: NO_ACCESS 
+    end
     true
   end
 

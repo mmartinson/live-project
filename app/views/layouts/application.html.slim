@@ -6,6 +6,10 @@ html
     = javascript_include_tag 'application'
     = csrf_meta_tags
   body
+    - if flash[:alert]
+      script alert("alert")
+    - elsif flash[:notice]
+      script alert('success')  
     .header
       = link_to 'Live Project', projects_path, class: 'h1 brand-title'
       ul.nav.nav-pills.pull-right
