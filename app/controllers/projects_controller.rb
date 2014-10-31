@@ -6,9 +6,8 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    #until associations are done
-    # @project = current_user.recent_project
-    @project = Project.first
+    @project = current_user.recent_project
+    @project ||= Project.first
   end
 
 

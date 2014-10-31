@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :memberships, dependent: :nullify
+  has_many :member_projects, through: :memberships, source: :project
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and 
   devise :database_authenticatable, :registerable,
