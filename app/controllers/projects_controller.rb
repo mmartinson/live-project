@@ -58,7 +58,7 @@ class ProjectsController < ApplicationController
 
   def find_project
     if params[:id]
-      @project = current_user.member_projects.find params[:id]
+      @project = current_user.member_projects.find_by_id params[:id]
       return
     else
       @project = current_user.member_projects.first #to handle errors, refactor?
