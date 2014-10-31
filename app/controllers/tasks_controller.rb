@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_task, only: [:show, :edit, :update, :destroy]
   before_action :get_project
+  before_action :get_task, only: [:show, :edit, :update, :destroy]
   before_action :get_discussions, only: [:show, :new, :edit]
   before_action :generate_empty_discussion, only: [:index, :show, :new, :edit] #defined in app controller
 
@@ -31,6 +31,7 @@ class TasksController < ApplicationController
   end
 
   def update
+    authorize(@project)
     if @task.update(task_params)
       redirect_to @project, notice: "Task Updated"
     else
@@ -40,6 +41,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    authorize(@project)
     @project = @task.project
     @task.destroy
     flash[:notice] = "Task deleted"
@@ -50,11 +52,11 @@ class TasksController < ApplicationController
   private
 
   def get_project
-    @project = Project.find(params[:project_id])
+    @project = current_user.member_projects.find(params[:project_id])
   end
 
   def get_task
-    @task = Task.find(params[:id]) 
+    @task = @project.tasks.find(params[:id]) 
   end
 
   def task_params
