@@ -2,9 +2,11 @@ class DiscussionsController < ApplicationController
   before_action :get_project, only: [:create, :update]
 
   def create
-    @discussion = Discussion.new discussion_params
-    @discussion.project = @project
+    @discussion = @project.discussions.new discussion_params
+    authorized(@project)
+    # @discussion.project = @project   #redundant
     if @discussion.save
+      recent
       redirect_to @project, notice: "Discussion added"
     else
       flash[:alert] = "Problem saving question"
@@ -13,8 +15,9 @@ class DiscussionsController < ApplicationController
   end
 
   def update
-    @discussion = Discussion.find params[:id]
+    @discussion = @project.discussions.find_by_id params[:id]
     if @discussion.update discussion_params
+      recent
       redirect_to @project, notice: "Discussion updated"
     else
       redirect_to @project, alert: "Problem updating discussion"
@@ -28,6 +31,6 @@ class DiscussionsController < ApplicationController
   end
 
   def get_project
-    @project = Project.find params[:project_id]
+    @project = current_user.member_projects.find_by_id params[:project_id]
   end
 end

@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_task, only: [:show, :edit, :update, :destroy]
   before_action :get_project
+  before_action :get_task, only: [:show, :edit, :update, :destroy]
   before_action :get_discussions, only: [:show, :new, :edit]
-  before_action :generate_empty_discussion, only: [:index, :show, :new, :edit] #defined in app controller
+  before_action :generate_empty_discussion, only: [:show, :new, :edit] #defined in app controller
 
 
   def new
@@ -12,8 +12,10 @@ class TasksController < ApplicationController
   end
 
   def create
+    authorized(@project)
     @task = @project.tasks.new(task_params)
     if @task.save
+      recent
       redirect_to @project, notice: "Task added"
     else
       flash[:alert] = "Problem adding task, check that it has a unique name"
@@ -24,6 +26,7 @@ class TasksController < ApplicationController
 
   def show
     @tasks = @project.tasks
+    recent
   end
 
   def edit
@@ -31,7 +34,9 @@ class TasksController < ApplicationController
   end
 
   def update
+    authorized(@project)
     if @task.update(task_params)
+      recent
       redirect_to @project, notice: "Task Updated"
     else
       flash[:alert] = "Problem editing task, chek that it has a unique name"
@@ -40,8 +45,10 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    authorized(@project)
     @project = @task.project
     @task.destroy
+    recent
     flash[:notice] = "Task deleted"
     redirect_to project_path(@project)
   end
@@ -50,11 +57,11 @@ class TasksController < ApplicationController
   private
 
   def get_project
-    @project = Project.find(params[:project_id])
+    @project = current_user.member_projects.find(params[:project_id])
   end
 
   def get_task
-    @task = Task.find(params[:id]) 
+    @task = @project.tasks.find(params[:id]) 
   end
 
   def task_params
@@ -65,4 +72,3 @@ class TasksController < ApplicationController
     @discussions = @project.discussions
   end
 end
-
