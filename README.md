@@ -1,4 +1,5 @@
 Live Project
 ============
-### A simple project management tool
-###### Developed as an assignment from CodeCore bootcamp
+### Organized collaboration for teams working on the Google Drive platform
+
+In early development
